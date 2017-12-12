@@ -28,6 +28,14 @@ Use the example.py file to create an image in the same folder that everything el
 
 If you are using this on a bot, please credit me in your bot's message that display's all its commands.
 
+Errors
+------
+An invalid api key will generate a 404 error.
+
+An invalid # will return a 403 error.
+
+For any other error, start an issue.
+
 Author
 ------
 
