@@ -10,7 +10,6 @@ class cocapi:
         api_key = "Your API key goes here." #PUT YOUR API KEY HERE
         self.api_dom = "https://api.clashofclans.com/v1"
         self.players = "/players/"
-        self.doodspav = "#ULP92C2"
         self.headers = {
     	    "Accept":"application/json",
     	    "authorization":"Bearer "+api_key
