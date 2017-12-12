@@ -1,6 +1,5 @@
 from main_profile import cocapi
 
-player = cocapi()
 
 player_hashtag = "#ULP92C2"
 file_name = "test" #default is "test"
