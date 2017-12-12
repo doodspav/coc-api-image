@@ -18,7 +18,7 @@ Python packages:
 
 You will need to get an api key from https://developer.clashofclans.com/.
 
-Bear in mind that api keys are ip specific.
+Bear in mind that api keys are IP specific.
 
 Put the api key in the api_key variable in main_profile.py in line 10.
 
@@ -33,4 +33,4 @@ doodspav
 
 LINE ID - doodspav
 
-COC # - #ULP92C2
+COC - #ULP92C2
