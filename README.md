@@ -30,9 +30,9 @@ If you are using this on a bot, please credit me in your bot's message that disp
 
 Errors
 ------
-An invalid api key will generate a 404 error.
+An invalid api key will generate a _404_ error.
 
-An invalid # will return a 403 error.
+An invalid # will return a _403_ error.
 
 For any other error, start an issue.
 
