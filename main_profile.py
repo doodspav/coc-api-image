@@ -498,7 +498,7 @@ class cocapi:
         icon_path = "cocapifiles/Icons/"
         icon_xy = {"Barbarian":(219,82),"Archer":(301,82),"Goblin":(463,82),"Giant":(382,82),"Wall_Breaker":(545,82),"Balloon":(627,82),"Wizard":(708,82),"Healer":(790,82),"Dragon":(872,82),"P.E.K.K.A":(953,82),"Minion":(382,162),"Hog_Rider":(463,162),"Valkyrie":(545,162),"Golem":(627,162),"Witch":(708,162),"Lava_Hound":(790,162),"Bowler":(872,162),"Baby_Dragon":(219,162),"Miner":(301,162),"Lightning_Spell":(1056,83),"Healing_Spell":(1137,83),"Rage_Spell":(1219,83),"Jump_Spell":(1301,83),"Freeze_Spell":(1381,83),"Poison_Spell":(1137,163),"Earthquake_Spell":(1219,163),"Haste_Spell":(1301,163),"Clone_Spell":(1056,163),"Skeleton_Spell":(1381,163),"Barbarian_King":(1481,83),"Archer_Queen":(1561,83),"Grand_Warden":(1643,83)}
         leveltext = ImageFont.truetype("cocapifiles/fonts/Supercell-Magic_5.ttf", 13)
-        leveltextpxs = {"0":13, "1":6, "2":10, "3":10, "4":12, "5":10, "6"11, "7":10, "8":12, "9":11}
+        leveltextpxs = {"0":13, "1":6, "2":10, "3":10, "4":12, "5":10, "6":11, "7":10, "8":12, "9":11}
         backround = Image.open("cocapifiles/blank_troops.png")
         th = Image.open("cocapifiles/townHall/" + str(self.playerThLevel) + ".png")
         backround.paste(th, box=(0,20))
