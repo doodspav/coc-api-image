@@ -26,6 +26,8 @@ Use the example.py file to create an image in the same folder that everything el
 
     $ python example.py
 
+If you are using this on a bot, please credit me in your bot's message that display's all its commands.
+
 Author
 ------
 
