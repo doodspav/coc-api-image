@@ -7,7 +7,7 @@ import numpy as np
 
 class cocapi:
     def __init__(self):
-        api_key = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjFmN2ZjOGE2LWE1NTEtNDJkNC1hZTI0LWViNDAwMWNjN2Y4OSIsImlhdCI6MTUxMTE3MDI0Miwic3ViIjoiZGV2ZWxvcGVyLzRhNWNiNzJkLTc0NWUtOGVlNy0yNjQ5LWMyOWEyOGYxNmYxZSIsInNjb3BlcyI6WyJjbGFzaCJdLCJsaW1pdHMiOlt7InRpZXIiOiJkZXZlbG9wZXIvc2lsdmVyIiwidHlwZSI6InRocm90dGxpbmcifSx7ImNpZHJzIjpbIjQ2LjEwMS44NS44MiJdLCJ0eXBlIjoiY2xpZW50In1dfQ.L43cpaSz-1fYCNUbuvRw-UVae3F1QjOC73bNocOTFD48ZQdDZSXFE5WirOrircwSbSgn584yoAVBplURUCCNMg"
+        api_key = "Your API key goes here." #PUT YOUR API KEY HERE
         self.api_dom = "https://api.clashofclans.com/v1"
         self.players = "/players/"
         self.doodspav = "#ULP92C2"
