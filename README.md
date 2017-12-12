@@ -15,7 +15,13 @@ Python packages:
 
     $ pip install numpy
     $ pip install pillow
-  
+
+You will need to get an api key from https://developer.clashofclans.com/
+
+Bear in mind that api keys are ip specific
+
+Put the api key in the api_key variable in main_profile.py in line 10.
+
 Use the example.py file to create an image in the same folder that everything else is in. The image will be called test.jpg.
 
     $ python example.py
