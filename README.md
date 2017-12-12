@@ -16,6 +16,8 @@ Python packages:
   
 Use the example.py file to create an image in the same folder that everything else is in. The image will be called test.jpg.
 
+    $ python example.py
+
 Author
 ------
 
