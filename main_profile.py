@@ -154,7 +154,7 @@ class cocapi:
     def main_info(self, player_dict):
         mainInfo = []
         self.playerLevel = self.player_dict["expLevel"]
-        self.playerTag = self.player_dict["tag"]
+        self.playerTag = self.player_dict["tag"].upper()
         self.playerName = self.player_dict["name"]
         self.playerThLevel = self.player_dict["townHallLevel"]
         self.playerBestTrophies = self.player_dict["bestTrophies"]
