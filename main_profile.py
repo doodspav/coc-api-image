@@ -594,7 +594,7 @@ class cocapi(object):
         new.save(path+name+ ".jpg", "JPEG")
 class CoClient(cocapi):
     def __init__(self,api_key):
-        api_key = api_key #PUT YOUR API KEY HERE
+        api_key = api_key
         self.api_dom = "https://api.clashofclans.com/v1"
         self.players = "/players/"
         self.headers = {
