@@ -9,4 +9,4 @@ file_path = "" #default is "/var/www/html/"
 
 player.makeProfile(player_hashtag, name=file_name, path=file_path)
 
-print "Created a profile for %s (%s)." % (player.playerName, player_hashtag)
+print "Created a profile for %s (%s)." % (player.playerName, player.playerTag)
