@@ -5,8 +5,25 @@ from PIL import Image, ImageFont, ImageDraw
 import math
 import numpy as np
 
+class cocapi:
+    def __init__(self):
+        api_key = "Your API key goes here." #PUT YOUR API KEY HERE
+        self.api_dom = "https://api.clashofclans.com/v1"
+        self.players = "/players/"
+        self.headers = {
+    	    "Accept":"application/json",
+    	    "authorization":"Bearer "+api_key
+    	    }
+        self.maxTroopLevels = [7,7,7,8,7,7,8,5,6,6,7,7,6,7,3,4,3,5,5]
+        self.Ntroops = 19
+        self.troopOrder = ["Barbarian","Archer","Goblin","Giant","Wall Breaker","Balloon","Wizard","Healer","Dragon","P.E.K.K.A","Minion","Hog Rider","Valkyrie","Golem","Witch","Lava Hound","Bowler","Baby Dragon","Miner"]
+        self.maxSpellLevels = [7,7,5,3,6,5,4,4,5,4]
+        self.Nspells = 10
+        self.spellOrder = ["Lightning Spell","Healing Spell","Rage Spell","Jump Spell","Freeze Spell","Poison Spell","Earthquake Spell","Haste Spell","Clone Spell","Skeleton Spell"]
+        self.maxHeroLevels = [45,45,20]
+        self.Nheroes = 3
+        self.heroOrder = ["Barbarian King","Archer Queen","Grand Warden"]
 
-class cocapi(object):		
     def player_info(self, player_tag):
         self.encoded_tag = urllib.quote_plus(player_tag)
         request = urllib2.Request(self.api_dom+self.players+self.encoded_tag,headers=self.headers)
@@ -137,7 +154,7 @@ class cocapi(object):
     def main_info(self, player_dict):
         mainInfo = []
         self.playerLevel = self.player_dict["expLevel"]
-        self.playerTag = self.player_dict["tag"].upper()
+        self.playerTag = self.player_dict["tag"]
         self.playerName = self.player_dict["name"]
         self.playerThLevel = self.player_dict["townHallLevel"]
         self.playerBestTrophies = self.player_dict["bestTrophies"]
@@ -592,23 +609,3 @@ class cocapi(object):
         	new.paste(pl, box=(0, hm))
         new.paste(pt, box=(0, hm + hl))
         new.save(path+name+ ".jpg", "JPEG")
-        
-class cocClient(cocapi):
-    def __init__(self,api_key):
-        api_key = api_key
-        self.api_dom = "https://api.clashofclans.com/v1"
-        self.players = "/players/"
-        self.headers = {
-    	    "Accept":"application/json",
-    	    "authorization":"Bearer "+api_key
-    	    }
-        self.maxTroopLevels = [7,7,7,8,7,7,8,5,6,6,7,7,6,7,3,4,3,5,5]
-        self.Ntroops = 19
-        self.troopOrder = ["Barbarian","Archer","Goblin","Giant","Wall Breaker","Balloon","Wizard","Healer","Dragon","P.E.K.K.A","Minion","Hog Rider","Valkyrie","Golem","Witch","Lava Hound","Bowler","Baby Dragon","Miner"]
-        self.maxSpellLevels = [7,7,5,3,6,5,4,4,5,4]
-        self.Nspells = 10
-        self.spellOrder = ["Lightning Spell","Healing Spell","Rage Spell","Jump Spell","Freeze Spell","Poison Spell","Earthquake Spell","Haste Spell","Clone Spell","Skeleton Spell"]
-        self.maxHeroLevels = [45,45,20]
-        self.Nheroes = 3
-        self.heroOrder = ["Barbarian King","Archer Queen","Grand Warden"]
-        cocapi.__init__(self)
