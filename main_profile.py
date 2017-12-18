@@ -20,7 +20,7 @@ class cocapi:
         self.maxSpellLevels = [7,7,5,3,6,5,4,4,5,4]
         self.Nspells = 10
         self.spellOrder = ["Lightning Spell","Healing Spell","Rage Spell","Jump Spell","Freeze Spell","Poison Spell","Earthquake Spell","Haste Spell","Clone Spell","Skeleton Spell"]
-        self.maxHeroLevels = [45,45,20]
+        self.maxHeroLevels = [50,50,20]
         self.Nheroes = 3
         self.heroOrder = ["Barbarian King","Archer Queen","Grand Warden"]
 
