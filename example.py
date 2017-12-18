@@ -1,6 +1,6 @@
-from main_profile import CoClient,cocapi
+from main_profile import cocapi
 
-client = cocClient("apiKey")
+client = cocapi()
 
 player_hashtag = "#ULP92C2"
 file_name = "test" #default is "test"
