@@ -44,3 +44,8 @@ doodspav
 LINE ID - doodspav
 
 COC - #ULP92C2
+
+Credits
+------
+
+Akkey Kami (LINE ID - akkey_god): helped with font issues
