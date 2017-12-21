@@ -587,26 +587,30 @@ class cocapi:
 
     def makeProfile(self, player_hash, path="/var/www/html/", name="test"):
         info = self.player_info(player_hash)
-        troops = self.troop_list(info)
-        spells = self.spell_list(info)
-        heroes = self.hero_list(info)
-        main = self.main_info(info)
-        legendS = self.legend_statistics(info)
-        pm = self.picture_main()
-        wm, hm = pm.size
-        pt = self.picture_troops()
-        wt, ht = pt.size
-        if self.legendStatus == 0:
-        	wl = 0
-        	hl = 0
+        if self.status_code == 200:
+            troops = self.troop_list(info)
+            spells = self.spell_list(info)
+            heroes = self.hero_list(info)
+            main = self.main_info(info)
+            legendS = self.legend_statistics(info)
+            pm = self.picture_main()
+            wm, hm = pm.size
+            pt = self.picture_troops()
+            wt, ht = pt.size
+            if self.legendStatus == 0:
+            	wl = 0
+        	    hl = 0
+            else:
+        	    pl = self.picture_legends()
+        	    wl, hl = pl.size
+            x = wm
+            y = hm + ht + hl
+            new = Image.new("RGB", (x,y), color=0)
+            new.paste(pm)
+            if self.legendStatus != 0:
+            	new.paste(pl, box=(0, hm))
+            new.paste(pt, box=(0, hm + hl))
+            new.save(path+name+ ".jpg", "JPEG")
+            return self.status_code
         else:
-        	pl = self.picture_legends()
-        	wl, hl = pl.size
-        x = wm
-        y = hm + ht + hl
-        new = Image.new("RGB", (x,y), color=0)
-        new.paste(pm)
-        if self.legendStatus != 0:
-        	new.paste(pl, box=(0, hm))
-        new.paste(pt, box=(0, hm + hl))
-        new.save(path+name+ ".jpg", "JPEG")
+            return self.status_code
