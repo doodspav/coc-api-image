@@ -14,6 +14,7 @@ class cocapi:
     	    "Accept":"application/json",
     	    "authorization":"Bearer "+api_key
     	    }
+        self.statusReasons = {200:"OK",400:"Invalid API key.",404:"Player hashtag does not exist.",429:"Request was throttled, because amount of requests was above the threshold defined for the used API token.",500:"Supercell fucked up somewhere.",503:"Supercell's servers are down for maintenance."}
         self.maxTroopLevels = [7,7,7,8,7,7,8,5,6,6,7,7,6,7,3,4,3,5,5]
         self.Ntroops = 19
         self.troopOrder = ["Barbarian","Archer","Goblin","Giant","Wall Breaker","Balloon","Wizard","Healer","Dragon","P.E.K.K.A","Minion","Hog Rider","Valkyrie","Golem","Witch","Lava Hound","Bowler","Baby Dragon","Miner"]
@@ -29,7 +30,7 @@ class cocapi:
         url = self.api_dom+self.players+self.encoded_tag
         r = requests.get(url, headers=self.headers)
         self.player_dict = r.json()
-        self.status_code = r.status_code
+        self.statusCode = r.status_code
         return self.player_dict
 
     def troop_list(self, player_dict):
@@ -587,7 +588,7 @@ class cocapi:
 
     def makeProfile(self, player_hash, path="/var/www/html/", name="test"):
         info = self.player_info(player_hash)
-        if self.status_code == 200:
+        if self.statusCode == 200:
             troops = self.troop_list(info)
             spells = self.spell_list(info)
             heroes = self.hero_list(info)
@@ -611,6 +612,6 @@ class cocapi:
             	new.paste(pl, box=(0, hm))
             new.paste(pt, box=(0, hm + hl))
             new.save(path+name+ ".jpg", "JPEG")
-            return self.status_code
+            return self.statusCode
         else:
-            return self.status_code
+            return self.statusCode
