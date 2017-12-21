@@ -598,11 +598,11 @@ class cocapi:
             pt = self.picture_troops()
             wt, ht = pt.size
             if self.legendStatus == 0:
-            	wl = 0
-        	    hl = 0
+                wl = 0
+                hl = 0
             else:
-        	    pl = self.picture_legends()
-        	    wl, hl = pl.size
+                pl = self.picture_legends()
+                wl, hl = pl.size
             x = wm
             y = hm + ht + hl
             new = Image.new("RGB", (x,y), color=0)
