@@ -1,4 +1,4 @@
-import urllib2
+import requests
 import json
 import urllib
 from PIL import Image, ImageFont, ImageDraw
@@ -26,9 +26,10 @@ class cocapi:
 
     def player_info(self, player_tag):
         self.encoded_tag = urllib.quote_plus(player_tag)
-        request = urllib2.Request(self.api_dom+self.players+self.encoded_tag,headers=self.headers)
-        response = urllib2.urlopen(request)
-        self.player_dict = json.load(response)
+        url = self.api_dom+self.players+self.encoded_tag
+        r = requests.get(url, headers=self.headers)
+        self.player_dict = r.json()
+        self.status_code = r.status_code
         return self.player_dict
 
     def troop_list(self, player_dict):
