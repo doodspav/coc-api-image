@@ -14,7 +14,7 @@ class cocapi:
     	    "Accept":"application/json",
     	    "authorization":"Bearer "+api_key
     	    }
-        self.statusReasons = {200:"OK",400:"Invalid API key.",404:"Player hashtag does not exist.",429:"Request was throttled, because amount of requests was above the threshold defined for the used API token.",500:"Supercell fucked up somewhere.",503:"Supercell's servers are down for maintenance."}
+        self.statusReasons = {200:"OK",400:"Incorrect request parameters.",403:"Invalid API key.",404:"Player hashtag does not exist.",429:"Request was throttled, because amount of requests was above the threshold defined for the used API token.",500:"Supercell fucked up somewhere.",503:"Supercell's servers are down for maintenance."}
         self.maxTroopLevels = [7,7,7,8,7,7,8,5,6,6,7,7,6,7,3,4,3,5,5]
         self.Ntroops = 19
         self.troopOrder = ["Barbarian","Archer","Goblin","Giant","Wall Breaker","Balloon","Wizard","Healer","Dragon","P.E.K.K.A","Minion","Hog Rider","Valkyrie","Golem","Witch","Lava Hound","Bowler","Baby Dragon","Miner"]
