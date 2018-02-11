@@ -1,6 +1,8 @@
 # coc-api-image
 This repo lets you generate a image of someone's main base profile in clash of clans using their #.
 
+UNDER CONSTRUCTION RN , WAIT FOR ME TO FINISH IT
+
 Uses the clash of clans api - get an api key at https://developer.clashofclans.com/
 
 Tutorial
