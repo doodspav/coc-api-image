@@ -264,7 +264,7 @@ class player:
         league_cups = [399,499,599,799,999,1199,1399,1599,1799,1999,2199,2399,2599,2799,2999,3199,3499,3799,4099,4399,4699,4999,10000000]
         league_id_to_text = {29000001:"Bronze League III",
                             29000002:"Bronze League II",
-                            29000003:"Bronze_League_I",
+                            29000003:"Bronze League I",
                             29000004:"Silver League III",
                             29000005:"Silver League II",
                             29000006:"Silver League I",
