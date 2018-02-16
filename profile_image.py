@@ -1,4 +1,3 @@
-#name: player (other one is clan)
 try:
     from urllib import quote_plus, urlretrieve #Python 2
 except ImportError:
@@ -9,7 +8,9 @@ from PIL import Image, ImageFont, ImageDraw
 import math
 import json
 import numpy as np
-
+from fontTools.ttLib import TTFont
+import random
+import os
 
 class player:
     def __init__(self, api_key):
@@ -81,6 +82,13 @@ class player:
         self.builder_hero_max_levels = [20]
         self.builder_hero_order = ["Battle Machine"]
         self.builder_hero_number = len(self.builder_hero_order)
+
+    def is_in_font(unicode_char, font):
+        for cmap in font["cmap"].tables:
+            if cmap.isUnicode():
+                if ord(unicode_char) in cmap.cmap:
+                    return True
+        return False
 
     def player_info(self, player_tag):
         #preferably sanitise the player_tag before this function
@@ -251,8 +259,6 @@ class player:
         tup = (self.is_legend, self.was_legend)
         return tup
 
-#change clan badges not to have I,II,III in the badge image
-#have a nicer legends badge
 #change name and clan name to not show blanks
     def main_picture_info(self):
         #global stuff
@@ -351,10 +357,9 @@ class player:
 
         #current badge
         if self.in_league == True:
-            badge_start_x = {29000001:"1043", 29000002:"1043", 29000003:"1043", 29000004:"1043", 29000005:"1043", 29000006:"1043", 29000007:"1042", 29000008:"1042", 29000009:"1042", 29000010:"1013", 29000011:"1013", 29000012:"1013", 29000013:"1025", 29000014:"1025", 29000015:"1025", 29000016:"1019", 29000017:"1019", 29000018:"1019", 29000019:"1026", 29000020:"1026", 29000021:"1026", 29000022:"1036"}
-            badge_start_y = {29000001:"40", 29000002:"40", 29000003:"40", 29000004:"56", 29000005:"56", 29000006:"56", 29000007:"14", 29000008:"14", 29000009:"14", 29000010:"49", 29000011:"49", 29000012:"49", 29000013:"11", 29000014:"11", 29000015:"11", 29000016:"33", 29000017:"33", 29000018:"33", 29000019:"35", 29000020:"35", 29000021:"35", 29000022:"48"}
-            bt_x, bt_y = int(badge_start_x[self.league_id]),int(badge_start_y[self.league_id])
-            badge_name = league_id_to_text[self.league_id].replace(" ","_")
+            bt_x, bt_y = 1005,9
+            league_name_words = league_id_to_text[self.league_id].split()
+            badge_name = "_".join(league_name_words[:2])
             badge_img = Image.open("cocapifiles/mainbadges/" + badge_name + ".png")
             self.main_blank.paste(badge_img, box=(bt_x,bt_y))
 
@@ -400,7 +405,9 @@ class player:
             role_img = Image.open("cocapifiles/role/"+role_dict[self.clan_role]+".png")
             self.main_blank.paste(role_img, box=(118,161))
             #clan badge
-            urlretrieve(self.clan_badge_URL, "cocapifiles/temp_clan_badge.png")
+            temp_number = str(random.randint(10000,99999))
+            temp_path = "cocapifiles/temp_clan_badge_%s.png" % temp_number
+            urlretrieve(self.clan_badge_URL, temp_path)
             backround = Image.open("cocapifiles/clan_badge_backround.png")
             badge = Image.open("cocapifiles/temp_clan_badge.png")
             badge_array = np.array(badge)
@@ -421,6 +428,7 @@ class player:
             size = 84,84
             composite = composite_small.resize(size, Image.ANTIALIAS)
             self.main_blank.paste(composite, box=(29,122))
+            os.remove(temp_path)
 
         return self.main_blank
 
@@ -625,9 +633,6 @@ class player:
                 hero_img.paste(heroimg3, box=(5,44))
                 self.troops_blank.paste(hero_img, box=icon_xy[icon_name])
         return self.troops_blank
-
-    def builder_picture_all(self):
-        print(hi)
 
     def main_full_profile(self, player_tag, path="", name="test", ext=".jpg"):
         ext_to_type = {".jpg":"JPEG",".png":"PNG"}
