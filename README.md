@@ -1,13 +1,11 @@
 # coc-api-image
 This repo lets you generate a image of someone's main base profile in clash of clans using their #.
 
-UNDER CONSTRUCTION RN , WAIT FOR ME TO FINISH IT
-
 Uses the clash of clans api - get an api key at https://developer.clashofclans.com/
 
 Tutorial
 ------
-Use python 2.7 (might work with 3 but not tested)
+Use python 2.7 (and I'm 99% sure it works in python 3.x)
 
 Using git:
 
@@ -17,12 +15,13 @@ Python packages:
 
     $ pip install numpy
     $ pip install pillow
+    $ pip install fonttools
 
 You will need to get an api key from https://developer.clashofclans.com/.
 
 Bear in mind that api keys are IP specific.
 
-Put the api key in the api_key variable in main_profile.py on line 10.
+Use the api_key as show in the example (usage denoted by api_key).
 
 Use the example.py file to create an image in the same folder that everything else is in. The image will be called test.jpg.
 
@@ -34,7 +33,7 @@ Errors
 ------
 An invalid api key will generate a _404_ error.
 
-An invalid # will return a _403_ error.
+An invalid #player_tag will return a _403_ error.
 
 For any other error, start an issue.
 
