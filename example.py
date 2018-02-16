@@ -12,4 +12,4 @@ response = client.main_full_profile(player_tag, name=file_name, path=file_path)
 if response == 200:
   print "Created a profile for %s (%s)." % (client.playerName, client.playerTag)
 else:
-  print response, client.statusReasons[response]
+  print response, client.status_reasons[response]
