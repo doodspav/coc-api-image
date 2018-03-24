@@ -456,7 +456,7 @@ class player:
             self.builder_main_blank.paste(atb_img, box=(1273,243))
             #putting the trophies number
             atb_font = ImageFont.truetype("cocapifiles/fonts/Supercell-Magic_5.ttf", 36)
-            atb_x, atb_y = 1351,297
+            atb_x, atb_y = 1351,302
             draw.text((atb_x-2,atb_y), str(self.builder_best_trophies), black, font=atb_font)
             draw.text((atb_x+2,atb_y), str(self.builder_best_trophies), black, font=atb_font)
             draw.text((atb_x,atb_y-2), str(self.builder_best_trophies), black, font=atb_font)
