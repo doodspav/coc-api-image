@@ -788,7 +788,7 @@ class player:
         for i in range(self.builder_hero_number):
             if hero_levels[i] != 0:
                 icon_name = self.builder_hero_order[i].replace(" ","_")
-                hero_img = Image.open(icon_path+icon_name+".png")
+                hero_img = Image.open(icon_path+icon_name+"_Builder.png")
                 if type(hero_levels[i]) == int:
                     #not max
                     level_img = Image.open(icon_path+"nonmax_hero_level.png")
