@@ -760,7 +760,7 @@ class player:
         for i in range(self.builder_troop_number):
             if troop_levels[i] != 0:
                 icon_name = self.builder_troop_order[i].replace(" ","_")
-                troop_img = Image.open(icon_path+icon_name+".png")
+                troop_img = Image.open(icon_path+icon_name+"_Builder.png")
                 if troop_levels[i] != 1:
                     if type(troop_levels[i]) == int:
                         #not max
