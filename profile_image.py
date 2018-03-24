@@ -26,7 +26,7 @@ class player:
                             404:"Player hashtag does not exist.",
                             429:"Request was throttled, because amount of requests was above the threshold defined for the used API token.",
                             500:"Supercell fucked up somewhere.",
-                            501:"You do not have builder base unlocked." #this one isn't real (i.e. not supported by supercell)
+                            501:"You do not have builder base unlocked.", #this one isn't real (i.e. not supported by supercell)
                             503:"Supercell's servers are down for maintenance."}
         #main profile stuff
         self.main_troop_max_levels = [7,7,7,8,7,7,8,5,6,7,7,7,6,7,3,4,3,5,5]
