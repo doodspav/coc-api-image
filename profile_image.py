@@ -411,7 +411,7 @@ class player:
             temp_path = "cocapifiles/temp_clan_badge_%s.png" % temp_number
             urlretrieve(self.clan_badge_URL, temp_path)
             backround = Image.open("cocapifiles/clan_badge_backround.png")
-            badge = Image.open("cocapifiles/temp_clan_badge.png")
+            badge = Image.open(temp_path)
             badge_array = np.array(badge)
             backround_array = np.array(backround)
             w1,h1 = badge.size
@@ -518,7 +518,7 @@ class player:
             temp_path = "cocapifiles/temp_clan_badge_%s.png" % temp_number
             urlretrieve(self.clan_badge_URL, temp_path)
             backround = Image.open("cocapifiles/clan_badge_backround.png")
-            badge = Image.open("cocapifiles/temp_clan_badge.png")
+            badge = Image.open(temp_path)
             badge_array = np.array(badge)
             backround_array = np.array(backround)
             w1,h1 = badge.size
