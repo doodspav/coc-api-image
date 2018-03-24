@@ -893,7 +893,7 @@ class player:
                 y += (h_bpi + h_bpt + filler)
             else:
                 #144 is bh_not_unlocked y length
-                y += (filler+filler+144)
+                y += (filler+144)
             profile_img = Image.new("RGB", (x,y), color=(234,234,226))
             profile_img.paste(mpi)
             if self.is_legend:
