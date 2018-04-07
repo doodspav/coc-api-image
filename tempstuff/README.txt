@@ -9,3 +9,6 @@ Where to paste th images: (top left pixel coordinates given)
 5:  (48,1068)
 4:  (425,1066)
 3:  (802,1085)
+
+Use CC_BackBeat font for the numbers in the little icons.
+Use SuperCell_Magic for the main text at the top.
