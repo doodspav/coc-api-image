@@ -16,6 +16,7 @@ Use SuperCell_Magic for the main text at the top.
 You will have to figure out the text coordinates for yourself.
 
 For the gold, black and blue icons:
+(top left pixel coordinates)
 11: y=623, x=(192,273,353)
 10: y=623, x=(564,647,727)
 9:  y=623, x=(940,1021,1101)
