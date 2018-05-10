@@ -812,8 +812,10 @@ class player:
 
         return self.builder_troops_blank
 
-    def main_full_profile(self, player_tag, path="", name="test", ext=".jpg"):
-        ext_to_type = {".jpg":"JPEG",".png":"PNG"}
+    def main_full_profile(self, player_tag, path="test.jpg", ext="JPEG"):
+        ext = ext.upper()
+        if ext not in ["PNG","JPEG"]:
+            raise Exception("Extension must be JPEG or PNG")
         info = self.player_info(player_tag)
         if self.status_code == 200:
             troops = self.main_troop_list()
@@ -837,11 +839,13 @@ class player:
             if self.is_legend:
                 profile_img.paste(mpl, box=(0,h_mpi))
             profile_img.paste(mpt, box=(0,h_mpi+h_mpl))
-            profile_img.save(path+name+ext,ext_to_type[ext])
+            profile_img.save(path, ext)
         return self.status_code
 
-    def builder_full_profile(self, player_tag, path="", name="test", ext=".jpg"):
-        ext_to_type = {".jpg":"JPEG",".png":"PNG"}
+    def builder_full_profile(self, player_tag, path="test.jpg", ext="JPEG"):
+        ext = ext.upper()
+        if ext not in ["PNG","JPEG"]:
+            raise Exception("Extension must be JPEG or PNG")
         info = self.player_info(player_tag)
         if self.status_code == 200:
             main = self.all_main_info()
@@ -857,13 +861,15 @@ class player:
                 profile_img = Image.new("RGB", (x,y), color=0)
                 profile_img.paste(bpi)
                 profile_img.paste(bpt, box=(0,h_bpi))
-                profile_img.save(path+name+ext,ext_to_type[ext])
+                profile_img.save(path, ext)
             else:
                 self.status_code = 501
         return self.status_code
 
-    def all_full_profile(self, player_tag, path="", name="test", ext=".jpg"):
-        ext_to_type = {".jpg":"JPEG",".png":"PNG"}
+    def all_full_profile(self, player_tag, path="test.jpg", ext="JPEG"):
+        ext = ext.upper()
+        if ext not in ["PNG","JPEG"]:
+            raise Exception("Extension must be JPEG or PNG")
         info = self.player_info(player_tag)
         if self.status_code == 200:
             troops = self.main_troop_list()
@@ -905,5 +911,5 @@ class player:
             else:
                 bh_not_unlocked = Image.open("cocapifiles/bh_not_unlocked.png")
                 profile_img.paste(bh_not_unlocked, box=(0,h_mpi+h_mpl+h_mpt+filler))
-            profile_img.save(path+name+ext,ext_to_type[ext])
+            profile_img.save(path,ext)
         return self.status_code
