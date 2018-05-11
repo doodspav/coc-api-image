@@ -813,6 +813,8 @@ class player:
         return self.builder_troops_blank
 
     def main_full_profile(self, player_tag, path="test.jpg", ext="JPEG"):
+        if type(ext) != str:
+            raise Exception("ext type must be str")
         ext = ext.upper()
         if ext not in ["PNG","JPEG"]:
             raise Exception("Extension must be JPEG or PNG")
@@ -843,6 +845,8 @@ class player:
         return self.status_code
 
     def builder_full_profile(self, player_tag, path="test.jpg", ext="JPEG"):
+        if type(ext) != str:
+            raise Exception("ext type must be str")
         ext = ext.upper()
         if ext not in ["PNG","JPEG"]:
             raise Exception("Extension must be JPEG or PNG")
@@ -867,6 +871,8 @@ class player:
         return self.status_code
 
     def all_full_profile(self, player_tag, path="test.jpg", ext="JPEG"):
+        if type(ext) != str:
+            raise Exception("ext type must be str")
         ext = ext.upper()
         if ext not in ["PNG","JPEG"]:
             raise Exception("Extension must be JPEG or PNG")
