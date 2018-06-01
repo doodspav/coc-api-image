@@ -419,10 +419,7 @@ class Player:
             self.main_blank.paste(composite, box=(29,122))
             os.remove(temp_path)
 
-        main_blank_dict = {"data":self.main_blank.tobytes(),
-                           "size":self.main_blank.size,
-                           "mode":self.main_blank.mode}
-        return main_blank_dict
+        return self.main_blank
 
     #change name and clan name to not show blanks
     def builder_picture_info(self):
@@ -509,10 +506,7 @@ class Player:
             self.builder_main_blank.paste(composite, box=(29,122))
             os.remove(temp_path)
 
-        builder_main_blank_dict = {"data":self.builder_main_blank.tobytes(),
-                                   "size":self.builder_main_blank.size,
-                                   "mode":self.builder_main_blank.mode}
-        return builder_main_blank_dict
+        return self.builder_main_blank
 
     def main_picture_legends(self):
         #global stuff
@@ -588,10 +582,7 @@ class Player:
             bsr_y = 117 - math.floor(height/2)
             draw = self.draw_outline_shadow(draw, (bsr_x,bsr_y), (2,5,2,2), str(self.best_season_rank), bsr_font)
 
-        legends_blank_dict = {"data":self.legends_blank.tobytes(),
-                              "size":self.legends_blank.size,
-                              "mode":self.legends_blank.mode}
-        return legends_blank_dict
+        return self.legends_blank
 
     def main_picture_troops(self):
         #global stuff
@@ -679,10 +670,7 @@ class Player:
                 hero_img.paste(heroimg3, box=(5,44))
                 self.troops_blank.paste(hero_img, box=icon_xy[icon_name])
 
-        troops_blank_dict = {"data":self.troops_blank.tobytes(),
-                             "size":self.troops_blank.size,
-                             "mode":self.troops_blank.mode}
-        return troops_blank_dict
+        return self.troops_blank
 
     def builder_picture_troops(self):
         #global stuff
@@ -745,10 +733,7 @@ class Player:
                 hero_img.paste(heroimg3, box=(5,44))
                 self.builder_troops_blank.paste(hero_img, box=icon_xy[icon_name])
 
-        builder_troops_blank_dict = {"data":self.builder_troops_blank.tobytes(),
-                                     "size":self.builder_troops_blank.size,
-                                     "mode":self.builder_troops_blank.mode}
-        return builder_troops_blank_dict
+        return self.builder_troops_blank
 
     def main_full_profile(self, player_tag, path="test.jpg", ext="JPEG"):
         if type(ext) != str:
