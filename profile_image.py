@@ -172,64 +172,64 @@ class Player:
 
     def all_main_info(self):
         #global info
-        self.level = self.player_dict["expLevel"]
-        self.tag = self.player_dict["tag"]
-        self.name = self.player_dict["name"]
-        self.in_clan = True if "clan" in self.player_dict.keys() else False
+        self.level = self.player_dict['expLevel']
+        self.tag = self.player_dict['tag']
+        self.name = self.player_dict['name']
+        self.in_clan = True if 'clan' in self.player_dict.keys() else False
         if self.in_clan == True:
-            self.clan_name = self.player_dict["clan"]["name"]
-            self.clan_tag = self.player_dict["clan"]["tag"]
-            self.clan_level = self.player_dict["clan"]["clanLevel"]
-            self.clan_badge_URL = self.player_dict["clan"]["badgeUrls"]["small"]
-            self.clan_role = self.player_dict["role"]
+            self.clan_name = self.player_dict['clan']['name']
+            self.clan_tag = self.player_dict['clan']['tag']
+            self.clan_level = self.player_dict['clan']['clanLevel']
+            self.clan_badge_URL = self.player_dict['clan']['badgeUrls']['small']
+            self.clan_role = self.player_dict['role']
         #home info
-        self.th_level = self.player_dict["townHallLevel"]
-        self.main_best_trophies = self.player_dict["bestTrophies"]
-        self.main_trophies = self.player_dict["trophies"]
-        self.troops_donated = self.player_dict["donations"]
-        self.troops_received = self.player_dict["donationsReceived"]
-        self.attack_wins = self.player_dict["attackWins"]
-        self.defense_wins = self.player_dict["defenseWins"]
-        self.war_stars = self.player_dict["warStars"]
-        self.in_league = True if "league" in self.player_dict.keys() else False
+        self.th_level = self.player_dict['townHallLevel']
+        self.main_best_trophies = self.player_dict['bestTrophies']
+        self.main_trophies = self.player_dict['trophies']
+        self.troops_donated = self.player_dict['donations']
+        self.troops_received = self.player_dict['donationsReceived']
+        self.attack_wins = self.player_dict['attackWins']
+        self.defense_wins = self.player_dict['defenseWins']
+        self.war_stars = self.player_dict['warStars']
+        self.in_league = True if 'league' in self.player_dict.keys() else False
         if self.in_league == True:
-            self.league_name = self.player_dict["league"]["name"]
-            self.league_id = self.player_dict["league"]["id"]
+            self.league_name = self.player_dict['league']['name']
+            self.league_id = self.player_dict['league']['id']
         #builder info
-        self.has_builder_base = True if "builderHallLevel" in self.player_dict.keys() else False
+        self.has_builder_base = True if 'builderHallLevel' in self.player_dict.keys() else False
         if self.has_builder_base == True:
-            self.bh_level = self.player_dict["builderHallLevel"]
-            self.builder_trophies = self.player_dict["versusTrophies"]
-            self.builder_best_trophies = self.player_dict["bestVersusTrophies"]
-            self.battle_wins = self.player_dict["versusBattleWins"]
-            self.battle_win_count = self.player_dict["versusBattleWinCount"]
+            self.bh_level = self.player_dict['builderHallLevel']
+            self.builder_trophies = self.player_dict['versusTrophies']
+            self.builder_best_trophies = self.player_dict['bestVersusTrophies']
+            self.battle_wins = self.player_dict['versusBattleWins']
+            self.battle_win_count = self.player_dict['versusBattleWinCount']
         tup = (self.in_clan, self.in_league, self.has_builder_base)
         return tup
 
     def all_legends_info(self):
         #current season rank doesnt work
         #return info loops from 1-999
-        if "legendStatistics" in self.player_dict.keys():
-            self.is_legend = True if "bestSeason" in self.player_dict["legendStatistics"].keys() else False
-            self.was_legend = True if "previousSeason" in self.player_dict["legendStatistics"].keys() else False
+        if 'legendStatistics' in self.player_dict.keys():
+            self.is_legend = True if 'bestSeason' in self.player_dict['legendStatistics'].keys() else False
+            self.was_legend = True if 'previousSeason' in self.player_dict['legendStatistics'].keys() else False
         else:
             self.is_legend = False
             self.was_legend = False
         if self.is_legend == True:
-            self.best_season_rank = self.player_dict["legendStatistics"]["bestSeason"]["rank"]
-            self.best_season_trophies = self.player_dict["legendStatistics"]["bestSeason"]["trophies"]
-            self.best_season_id = self.player_dict["legendStatistics"]["bestSeason"]["id"] #yyyy-mm
-            self.legend_trophies = self.player_dict["legendStatistics"]["legendTrophies"]
+            self.best_season_rank = self.player_dict['legendStatistics']['bestSeason']['rank']
+            self.best_season_trophies = self.player_dict['legendStatistics']['bestSeason']['trophies']
+            self.best_season_id = self.player_dict['legendStatistics']['bestSeason']['id'] #yyyy-mm
+            self.legend_trophies = self.player_dict['legendStatistics']['legendTrophies']
         if self.was_legend == True:
-            self.previous_season_rank = self.player_dict["legendStatistics"]["previousSeason"]["rank"]
-            self.previous_season_trophies = self.player_dict["legendStatistics"]["previousSeason"]["trophies"]
-            self.previous_season_id = self.player_dict["legendStatistics"]["previousSeason"]["id"] #yyyy-mm
+            self.previous_season_rank = self.player_dict['legendStatistics']['previousSeason']['rank']
+            self.previous_season_trophies = self.player_dict['legendStatistics']['previousSeason']['trophies']
+            self.previous_season_id = self.player_dict['legendStatistics']['previousSeason']['id'] #yyyy-mm
         tup = (self.is_legend, self.was_legend)
         return tup
 
     def main_troop_list(self):
-        levels = [troop["level"] for troop in self.player_dict["troops"] if troop["village"] == "home"]
-        names = [troop["name"] for troop in self.player_dict["troops"] if troop["village"] == "home"]
+        levels = [troop['level'] for troop in self.player_dict['troops'] if troop['village'] == 'home']
+        names = [troop['name'] for troop in self.player_dict['troops'] if troop['village'] == 'home']
         #add a 0 to levels if troop name is missing
         for i in range(self.main_troop_number):
             try:
@@ -249,8 +249,8 @@ class Player:
         return self.main_troop_levels
 
     def builder_troop_list(self):
-        levels = [troop["level"] for troop in self.player_dict["troops"] if troop["village"] == "builderBase"]
-        names = [troop["name"] for troop in self.player_dict["troops"] if troop["village"] == "builderBase"]
+        levels = [troop['level'] for troop in self.player_dict['troops'] if troop['village'] == 'builderBase']
+        names = [troop['name'] for troop in self.player_dict['troops'] if troop['village'] == 'builderBase']
         #add a 0 to levels if troop name is missing
         for i in range(self.builder_troop_number):
             try:
@@ -270,9 +270,9 @@ class Player:
         return self.builder_troop_levels
 
     def main_spell_list(self):
-        if "spells" in self.player_dict.keys():
-            levels = [spell["level"] for spell in self.player_dict["spells"] if spell["village"] == "home"]
-            names = [spell["name"] for spell in self.player_dict["spells"] if spell["village"] == "home"]
+        if 'spells' in self.player_dict.keys():
+            levels = [spell['level'] for spell in self.player_dict['spells'] if spell['village'] == 'home']
+            names = [spell['name'] for spell in self.player_dict['spells'] if spell['village'] == 'home']
             #add a 0 to levels if spell name is missing
             for i in range(self.main_spell_number):
                 try:
@@ -294,9 +294,9 @@ class Player:
         return self.main_spell_levels
 
     def main_hero_list(self):
-        if "heroes" in self.player_dict.keys():
-            levels = [hero["level"] for hero in self.player_dict["heroes"] if hero["village"] == "home"]
-            names = [hero["name"] for hero in self.player_dict["heroes"] if hero["village"] == "home"]
+        if 'heroes' in self.player_dict.keys():
+            levels = [hero['level'] for hero in self.player_dict['heroes'] if hero['village'] == 'home']
+            names = [hero['name'] for hero in self.player_dict['heroes'] if hero['village'] == 'home']
             #add a 0 to levels if hero name is missing
             for i in range(self.main_hero_number):
                 try:
@@ -318,9 +318,9 @@ class Player:
         return self.main_hero_levels
 
     def builder_hero_list(self):
-        if "heroes" in self.player_dict.keys():
-            levels = [hero["level"] for hero in self.player_dict["heroes"] if hero["village"] == "builderBase"]
-            names = [hero["name"] for hero in self.player_dict["heroes"] if hero["village"] == "builderBase"]
+        if 'heroes' in self.player_dict.keys():
+            levels = [hero['level'] for hero in self.player_dict['heroes'] if hero['village'] == 'builderBase']
+            names = [hero['name'] for hero in self.player_dict['heroes'] if hero['village'] == 'builderBase']
             #add a 0 to levels if hero name is missing
             for i in range(self.builder_hero_number):
                 try:
